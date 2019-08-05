@@ -39,3 +39,20 @@ class Solution:
 #[0,2,2,3]
 #Expected
 #[0,2]
+
+#using enumerator
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        l=list()
+        d=dict()
+        for j,i in enumerate(nums):
+                if (target-i) in d.keys():
+                    l.append(d[target-i])
+                    l.append(j)
+                    break
+                   
+                else: 
+                    d[i]=j
+                    j+=1
+        return l
+        
