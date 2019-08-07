@@ -15,3 +15,38 @@ class Solution:
         return max(l)
        
         
+#O(nlogn) time +  0(n) space
+
+from bisect import bisect_left
+class Solution:
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        n=len(nums)
+        if n<2:
+            return n
+        l=list()
+        for i in range (n):
+ #bisect.bisect_left returns the leftmost place in the sorted list to insert the   given element.
+            j=bisect_left(l, nums[i])
+ #Replace the element with its immediate successor
+            if j==0 and len(l)>0 :
+                l.pop(j)
+                l.insert(j,nums[i])
+ #If immediate successor is not present and list is empty.
+            elif j==0 and len(l)==0:
+                l.insert(j,nums[i])
+ #If there is no successor then insert element at the end.
+            elif(len(l)==j):
+                l.append(nums[i])
+ #If immediate successor is present in between of the list, remove the immediate successor and insert current element
+            else:
+                l.pop(j)
+                l.insert(j,nums[i])
+       
+        return len(set(l))   #remove duplicate element
+           
+#Note: 
+#a  = [10,20,30,40]
+#x = int(5)
+#res = BinarySearch(a, x)
+#print(res)  #output  4 - you can insert at index 4   
+        
