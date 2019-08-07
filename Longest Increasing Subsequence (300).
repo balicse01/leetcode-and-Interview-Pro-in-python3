@@ -1,5 +1,5 @@
 
-#O (n^2- dp) +  0(n) space
+# Approach -1, standard dp solution:  O(n^2) time +  0(n) space
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
         n=len(nums)
@@ -15,7 +15,8 @@ class Solution:
         return max(l)
        
         
-#O(nlogn) time +  0(n) space
+# Approach -2,  O(nlogn) time +  0(n) space
+# Replace with immediate successor
 
 from bisect import bisect_left
 class Solution:
@@ -49,4 +50,13 @@ class Solution:
 #x = int(5)
 #res = BinarySearch(a, x)
 #print(res)  #output  4 - you can insert at index 4   
+
+#Algorithm 
+#Consider the example:
+#input: [0, 8, 4, 12, 2]
+#l: [0]
+#l: [0, 8]
+#l: [0, 4]
+#l: [0, 4, 12]
+#l: [0 , 2, 12] which is not the longest increasing subsequence, but length of list - l results in length of Longest Increasing Subsequence.
         
