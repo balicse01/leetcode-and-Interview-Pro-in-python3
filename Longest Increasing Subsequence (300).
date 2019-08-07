@@ -43,7 +43,7 @@ class Solution:
                 l.pop(j)
                 l.insert(j,nums[i])
        
-        return len(set(l))   #remove duplicate element
+        return len(l)   
            
 #Note: 
 #a  = [10,20,30,40]
